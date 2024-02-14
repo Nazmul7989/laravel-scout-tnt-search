@@ -12,7 +12,11 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::search($request->search)->paginate(16);
+        if ($request->search) {
+            $posts = Post::search($request->search)->latest()->paginate(16);
+        }else{
+            $posts = Post::latest()->paginate(16);
+        }
         return view('posts',compact('posts'));
     }
 

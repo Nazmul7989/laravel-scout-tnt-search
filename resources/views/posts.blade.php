@@ -9,12 +9,20 @@
 <body>
 <div class="container">
     <div class="row">
-        <h5 class="text-center my-3">Post List</h5>
+        <div class="col-12 d-flex justify-content-between my-3">
+            <h5 class="text-center my-3">Post List</h5>
+            <form action="{{ route('posts.index') }}" method="get" class="form-inline d-flex justify-content-between">
+                @csrf
+                <input type="text" name="search" placeholder="Search Post..." class="form-control">
+                <input type="submit" class="btn bg-primary ms-2" value="Search">
+            </form>
+        </div>
         @foreach($posts as $post)
             <div class="col-md-3">
                 <div class="card px-4 py-4 shadow mb-3" style="min-height: 160px;">
                     <div class="card-boy">
                         <h6 class="card-title">{{ $post->title }}</h6>
+                        <div class="text-primary small">{{ $post->category->title }}</div>
                         <div class="card-text">{{ \Illuminate\Support\Str::limit($post->description,50) }}...</div>
                     </div>
                 </div>
