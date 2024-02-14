@@ -10,9 +10,9 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::paginate(10);
+        $posts = Post::search($request->search)->paginate(16);
         return view('posts',compact('posts'));
     }
 
