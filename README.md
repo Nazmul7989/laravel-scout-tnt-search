@@ -4,6 +4,10 @@
 ```
 composer require laravel/scout
 ```
+If you face any php extension related error during installing scout, Add this line after the installation command
+``` 
+composer require laravel/scout --ignore-platform-reqs
+```
 ### Publish config/scout.php file
 ```
 php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
@@ -13,6 +17,10 @@ php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
 ### Install TntSearch
 ``` 
 composer require teamtnt/laravel-scout-tntsearch-driver
+```
+If you face any php extension related error during installing scout tntsearch driver, Add this line after the installation command
+``` 
+composer require teamtnt/laravel-scout-tntsearch-driver --ignore-platform-reqs
 ```
 
 ### Add the service provider:
